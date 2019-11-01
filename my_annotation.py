@@ -9,7 +9,7 @@ classes = ["snail"]
 
 
 def convert_annotation(p1, image_id, list_file):
-    in_file = open('model_data/data/{}/{}'.format(p1, image_id))
+    in_file = open('model_data/data/{}/{}.xml'.format(p1, image_id))
     tree=ET.parse(in_file)
     root = tree.getroot()
 
@@ -26,7 +26,9 @@ def convert_annotation(p1, image_id, list_file):
 wd = getcwd()
 
 for p1, p2 in sets:
-    image_ids = open('{}/{}.txt'.format(p1, p2)).read().strip().split()
+    imgs = list(filter(lambda x: '.jpg' in x, os.listdir(os.path.join(p1,p2)))) #Generate list of images
+    image_ids = [img.split('.')[0] for img in imgs] # Strip off extension
+    # image_ids = open('{}/{}.txt'.format(p1, p2)).read().strip().split()
     list_file = open('%s/%s.txt'%(p1, p2), 'w')
     for image_id in image_ids:
         list_file.write('{}/{}/{}/{}.jpg'.format(wd, p1, p2, image_id))
