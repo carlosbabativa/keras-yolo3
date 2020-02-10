@@ -1,0 +1,26 @@
+<annotation>
+	<folder>phase1_training</folder>
+	<filename>168.jpg</filename>
+	<path>D:\GrainCam\phase1_training\168.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3120</width>
+		<height>4160</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>snail</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>962</xmin>
+			<ymin>931</ymin>
+			<xmax>1010</xmax>
+			<ymax>996</ymax>
+		</bndbox>
+	</object>
+</annotation>

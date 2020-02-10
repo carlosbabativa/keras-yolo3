@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>0.jpg</filename>
+	<path>D:\Carlos\Learn\snail_train\images\train\0.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>4128</width>
+		<height>5504</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>snail</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1691</xmin>
+			<ymin>5055</ymin>
+			<xmax>1731</xmax>
+			<ymax>5096</ymax>
+		</bndbox>
+	</object>
+</annotation>
