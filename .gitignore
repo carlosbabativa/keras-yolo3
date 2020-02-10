@@ -1,3 +1,6 @@
+# Own Data
+data/
+
 *.jpg
 *.png
 *.weights
