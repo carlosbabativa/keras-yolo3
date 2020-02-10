@@ -1,0 +1,8 @@
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/20200207_140123.jpg 267,235,297,271,0 216,1446,253,1487,0 1880,1157,1953,1234,0 1241,241,1292,281,1 1262,205,1304,245,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/20200207_140142.jpg 402,250,450,305,0 370,529,417,564,0 72,704,141,759,2 430,1400,473,1435,0 1958,1404,1998,1446,1 1222,254,1289,325,2
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/gcbv20200206_134424.jpg 375,531,433,584,2 670,843,776,900,2 394,1012,448,1048,0 491,1856,546,1910,2 1762,1221,1818,1271,0 1729,1167,1763,1210,0 1454,556,1522,636,0 1715,446,1776,503,1 2006,357,2116,462,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/gcbv20200206_134446.jpg 308,329,353,415,0 842,785,924,870,2 2025,358,2125,467,2 1500,434,1586,552,2 1748,448,1797,505,1
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/gcDec1720200207_133249.jpg 1765,611,1813,668,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/gcDec1720200207_133306.jpg 1963,532,2013,584,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/LG20200207_135655.jpg 758,133,799,179,1 852,218,900,273,0 452,874,543,943,2 1832,812,1887,855,0 1570,364,1614,418,1
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_val/LG20200207_135742.jpg 765,952,813,996,0 1540,1644,1623,1719,2 1604,1299,1643,1332,0
