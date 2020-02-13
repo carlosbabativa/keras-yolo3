@@ -35,7 +35,9 @@ def rand(a=0, b=1):
 
 def get_random_data(annotation_line, input_shape, random=True, max_boxes=20, jitter=.3, hue=.1, sat=1.5, val=1.5, proc_img=True):
     '''random preprocessing for real-time data augmentation'''
-    line = annotation_line.split()
+    ln = annotation_line.split('.')
+    ln1 = ln[1].split()
+    line = [ln[0]+'.'+ln1[0],*ln1[1:]]
     image = Image.open(line[0])
     iw, ih = image.size
     h, w = input_shape

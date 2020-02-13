@@ -1,0 +1,43 @@
+{
+    "bs_000": {
+        "stg_epochs": [80, 160], 
+        "batches": [7, 32], 
+        "base": "yolov3-tiny"
+    }, 
+    "bs_001": {
+        "stg_epochs": [80, 160], 
+        "batches": [7, 32], 
+        "base": "bs_000_final"
+    },
+    "bs_002": {
+        "stg_epochs": [80, 160], 
+        "batches": [7, 32], 
+        "base": "bs_001_final"
+    },
+    "bs_003": {
+        "stg_epochs": [80, 160], 
+        "batches": [4, 32], 
+        "base": "yolov3-tiny"
+    },
+    "bs_004": {
+        "stg_epochs": [80, 160], 
+        "batches": [4, 32], 
+        "base": "bs_001_stage_1"
+    },
+    "bs_005": {
+        "stg_epochs": [80, 160], 
+        "batches": [4, 32], 
+        "base": "bs_001_final"
+    },
+    "bs_006": {
+        "stg_epochs": [80, 160], 
+        "batches": [4, 7], 
+        "base": "yolov3-tiny"
+    },
+    "bs_007": {
+        "stg_epochs": [80, 160], 
+        "batches": [2, 4], 
+        "base": "yolov3-tiny"
+    }
+
+}

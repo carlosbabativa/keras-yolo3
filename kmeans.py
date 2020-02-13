@@ -1,11 +1,16 @@
+import sys
+import argparse
+import os
+from os.path import join as join_pth
 import numpy as np
 
 
 class YOLO_Kmeans:
 
-    def __init__(self, cluster_number, filename):
+    def __init__(self, filename, ds_path, cluster_number=9):
         self.cluster_number = cluster_number
-        self.filename = "2012_train.txt"
+        self.filename = filename
+        self.ds_path = ds_path
 
     def iou(self, boxes, clusters):  # 1 box -> k clusters
         n = boxes.shape[0]
@@ -58,7 +63,8 @@ class YOLO_Kmeans:
         return clusters
 
     def result2txt(self, data):
-        f = open("yolo_anchors.txt", 'w')
+        out_path = os.path.join(self.ds_path,"calculated_anchors.txt")
+        f = open(out_path, 'w')
         row = np.shape(data)[0]
         for i in range(row):
             if i == 0:
@@ -72,7 +78,8 @@ class YOLO_Kmeans:
         f = open(self.filename, 'r')
         dataSet = []
         for line in f:
-            infos = line.split(" ")
+            # infos = line.split(" ") <- doesn't work if image has spaces
+            infos = line.split(".")[1][3:].split(" ") #split at e.g. .jpg, take info ignoring format (3 chars); split info by space
             length = len(infos)
             for i in range(1, length):
                 width = int(infos[i].split(",")[2]) - \
@@ -93,9 +100,31 @@ class YOLO_Kmeans:
         print("Accuracy: {:.2f}%".format(
             self.avg_iou(all_boxes, result) * 100))
 
+def main(args):
+    cluster_number = int(args.num) if args.num is not None else 9
+    dataset = args.ds_name
+    ds_path = join_pth(os.getcwd(),'model_data', dataset)
+    dt_path = join_pth(ds_path,'data_train.txt')
+    kmeans = YOLO_Kmeans(dt_path, ds_path, cluster_number)
+    kmeans.txt2clusters()
+
 
 if __name__ == "__main__":
-    cluster_number = 9
-    filename = "2012_train.txt"
-    kmeans = YOLO_Kmeans(cluster_number, filename)
-    kmeans.txt2clusters()
+    ds_name = None
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-d',
+        '--dataset',
+        dest='ds_name',
+        required=True,
+        help='Name of dataset (folder in datastes folder \'data\')',
+    )
+    parser.add_argument(
+        '-n',
+        '--num_anchors',
+        dest='num',
+        required=False,
+        help='Number of anchors to be calculated',
+    )
+    args = parser.parse_args()
+    main(args)

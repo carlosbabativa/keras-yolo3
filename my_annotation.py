@@ -1,22 +1,11 @@
+import sys
+import argparse
 import xml.etree.ElementTree as ET
 from os import getcwd
 import os
 
-
-cust_dir    = 'data_snail-grain_crp'
-train_dir   = 'model_data/{}/data_train'.format(cust_dir)
-val_dir     = 'model_data/{}/data_val'.format(cust_dir)
-if not os.path.exists(train_dir + '.txt'):
-    open(train_dir+'.txt', 'w+').write('\n'.join(os.listdir(train_dir)))
-    open( val_dir+ '.txt', 'w+').write('\n'.join(os.listdir( val_dir )))
-# os.system('gen_img_lists.bat')
-sets=[('model_data/'+cust_dir, 'data_train'), ('model_data/'+cust_dir,'data_val')]
-
-classes = ["snail"]
-
-
-def convert_annotation(p1, image_id, list_file):
-    in_file = open('model_data/{}/{}/{}.xml'.format(cust_dir,p1, image_id))
+def convert_annotation(p1, image_id, list_file, ds_name, classes):
+    in_file = open('model_data/{}/{}/{}.xml'.format(ds_name,p1, image_id))
     tree=ET.parse(in_file)
     root = tree.getroot()
 
@@ -27,19 +16,37 @@ def convert_annotation(p1, image_id, list_file):
             continue
         cls_id = classes.index(cls)
         xmlbox = obj.find('bndbox')
-        b = (int(float(xmlbox.find('xmin').text)), int(float(xmlbox.find('ymin').text)), int(float(xmlbox.find('xmax').text)), int(float(xmlbox.find('ymax').text)))
+        b = (int(xmlbox.find('xmin').text), int(xmlbox.find('ymin').text), int(xmlbox.find('xmax').text), int(xmlbox.find('ymax').text))
         list_file.write(" " + ",".join([str(a) for a in b]) + ',' + str(cls_id))
 
-wd = getcwd()
 
-for p1, p2 in sets:
-    imgs = list(filter(lambda x: '.jpg' in x, os.listdir(os.path.join(p1,p2)))) #Generate list of images
-    image_ids = [img.split('.')[0] for img in imgs] # Strip off extension
-    # image_ids = open('{}/{}.txt'.format(p1, p2)).read().strip().split()
-    list_file = open('%s/%s.txt'%(p1, p2), 'w')
-    for image_id in image_ids:
-        list_file.write('{}/{}/{}/{}.jpg'.format(wd, p1, p2, image_id))
-        convert_annotation(p2, image_id, list_file)
-        list_file.write('\n')
-    list_file.close()
+def main(ds_name):
 
+    os.system('gen_img_lists.bat '+ds_name)
+    ds_r_path = 'model_data/'+ds_name
+    sets=[ (ds_r_path,'data_train'), (ds_r_path, 'data_val') ]
+    classes = [f.strip('\n') for f in open('model_data/{}/labels.txt'.format(ds_name))]
+    wd = getcwd()
+
+    for p1, p2 in sets:
+        imgs = list(filter(lambda x: '.jpg' in x, os.listdir(os.path.join(p1,p2)))) #Generate list of images
+        image_ids = [img.split('.')[0] for img in imgs] # Strip off extension
+        # image_ids = open('{}/{}.txt'.format(p1, p2)).read().strip().split()
+        list_file = open('%s/%s.txt'%(p1, p2), 'w')
+        for image_id in image_ids:
+            list_file.write('{}/{}/{}/{}.jpg'.format(wd, p1, p2, image_id))
+            convert_annotation(p2, image_id, list_file, ds_name, classes)
+            list_file.write('\n')
+        list_file.close()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-d',
+        '--dataset',
+        dest='ds_name',
+        required=True,
+        help='Name of dataset (folder in datastes folder \'data\')',
+    )
+    args = parser.parse_args()
+    main(args.ds_name)

@@ -1,0 +1,14 @@
+{
+    "train_cfg_1": {
+        "stg_epochs":[50,100],
+        "batches"   :[3,6],
+        "base"      :"yolov3-tiny"
+        }
+    },
+    "train_cfg_2": {
+        "stg_epochs":[50, 120, 150],
+        "batches"   :[2, 3, 6],
+        "base"      :"train_cfg_1"
+        }
+    }
+}

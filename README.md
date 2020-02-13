@@ -1,3 +1,50 @@
+# Quick Training Session (From LabelImg images)
+Note: Dependencies:
+    -Tensorflow (1.12 tested OK)
+    -Keras
+    -Pillow
+    -matplotlib
+and
+    yolov3[-tiny].weights converted to .h5
+    You can obtain them with:
+    ``` python convert.py {chosen_arch.cfg} {chosen_arch_pretrained.weights} {chosen_arch.h5} ```
+    Save under at model_data with the name "yolov3.h5" or "yolov3-tiny.h5"
+lastly
+    Your dataset (images with xml annotations files) 
+    e.g. as formatted by [labelImg](https://github.com/tzutalin/labelImg)
+1. Create dataset folder in model_data 
+<!-- and split data 80-20 % for training and validation -->
+    model_data
+    |--{dataset_name}
+    |   |--data_train
+    |       |--{images and labels}
+<!-- 
+    |   |--data_val
+    |       |--{images and labels} -->
+
+2. Update your classes' list in model_data/{dataset_folder}/labels.txt
+<!-- 3. Modify my_annotation_bs.py (dataset_name) and run it. This outputs train and val txts with required input in dataset folder
+    e.g.:
+    {image1_path} [{{rect},{classID}}] -->
+3. Generate yolo-style annotations ``` python  my_annotation.py -d {dataset_name}``` 
+    saved to data_train|val.txt in dataset folder
+4. Calculate Anchors with ``` python kmeans.py -d {dataset_name} ``` 
+<!-- 5. Create a copy and rename accoringly: yolov3-tiny_{dataset_suffix}.cfg
+    5.1 Copy the line of anchors at model_data/{dataset_name}/calculated_anchors.txt
+    5.2 Paste anchors in this file (on each yolo layer - 2 in total for yolov3-tiny)
+    5.3 Calculate num_anchors * (5 + num_classes) and change value of filter in [convolutional] layer before each [yolo] layer
+    [More Details](https://github.com/AlexeyAB/darknet/issues/4511) -->
+<!-- 6. Convert pretrained weights with your customised cfg by running ``` python convert.py {your.cfg} {chosen_arch_pretrained.weights} model_data/{dataset_name}/cfg_name.h5``` -->
+<!-- 7. Create a copy of train(caterp).py and rename accordingly -->
+
+5. Run ``` python my_train_general.py -d bedstraw_land -c configs_1.json ```
+
+# TODO
+[ ] Streamline steps as a single input of dataset folder path
+    [ ] include annotations and anchor generation (kmeans) in train_general
+
+---------------------
+## ORIGINAL REPO:
 # keras-yolo3
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)

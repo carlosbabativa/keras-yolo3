@@ -5,6 +5,10 @@ C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_t
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/20200207_135914.jpg 847,299,902,356,0 607,1138,663,1171,0 678,1233,713,1271,1
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/20200207_135932.jpg 850,1005,897,1051,0 800,1125,857,1181,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/20200207_140104.jpg 369,190,451,243,2 857,346,899,407,2 189,333,242,378,0 1823,1134,1896,1209,2 1986,1309,2029,1344,0 1328,460,1381,524,0 1720,30,1763,84,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/20200207_140123.jpg 267,235,297,271,0 216,1446,253,1487,0 1880,1157,1953,1234,0 1241,241,1292,281,1 1262,205,1304,245,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/20200207_140142.jpg 402,250,450,305,0 370,529,417,564,0 72,704,141,759,2 430,1400,473,1435,0 1958,1404,1998,1446,1 1222,254,1289,325,2
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcbv20200206_134424.jpg 375,531,433,584,2 670,843,776,900,2 394,1012,448,1048,0 491,1856,546,1910,2 1762,1221,1818,1271,0 1729,1167,1763,1210,0 1454,556,1522,636,0 1715,446,1776,503,1 2006,357,2116,462,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcbv20200206_134446.jpg 308,329,353,415,0 842,785,924,870,2 2025,358,2125,467,2 1500,434,1586,552,2 1748,448,1797,505,1
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcbv20200206_134505.jpg 191,827,242,902,2 323,1623,372,1677,0 1863,447,1927,515,1 1671,410,1716,521,0 2075,283,2168,412,2
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcbv20200206_134552.jpg 948,1042,1000,1094,1 1351,648,1406,702,1 1451,1626,1508,1691,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcbv20200206_134611.jpg 63,408,153,488,2 253,477,329,548,2 1781,1204,1838,1258,1 1348,900,1394,936,1 2029,470,2132,575,2 2049,509,2128,571,2
@@ -20,6 +24,10 @@ C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_t
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcDec1720200207_132933.jpg 1245,744,1294,798,1 1790,1266,1836,1316,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcDec1720200207_133024.jpg 1808,211,1862,267,0 1283,94,1364,164,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcDec1720200207_133110.jpg 1155,267,1203,320,0 759,1614,825,1688,0 1125,1516,1197,1586,0 1720,1623,1773,1674,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcDec1720200207_133249.jpg 1765,611,1813,668,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/gcDec1720200207_133306.jpg 1963,532,2013,584,0
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/LG20200207_135655.jpg 758,133,799,179,1 852,218,900,273,0 452,874,543,943,2 1832,812,1887,855,0 1570,364,1614,418,1
+C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/LG20200207_135742.jpg 765,952,813,996,0 1540,1644,1623,1719,2 1604,1299,1643,1332,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/LG20200207_135756.jpg 548,60,595,109,1 561,144,608,207,0 709,959,754,1002,0 1504,1593,1553,1673,0 1867,1019,1919,1080,0 2094,525,2192,601,2 1800,133,1864,199,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/LG20200207_135849.jpg 906,105,958,197,2 974,1444,1013,1489,0 1656,862,1724,918,0 1679,452,1734,501,1 1618,391,1665,442,0
 C:\Users\crodriguez\Documents\GitHub\keras-yolo3/model_data/bedstraw_land/data_train/LG20200207_140021.jpg 1242,493,1306,571,2 1211,374,1254,424,1 1987,1814,2041,1878,1 2307,158,2377,216,0
