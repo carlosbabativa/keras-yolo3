@@ -1,0 +1,35 @@
+{
+    "bs_c_000": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [9, 27]
+    }, 
+    "bs_c_001": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [9, 36]
+    },
+    "bs_c_002": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [18, 27]
+    },
+    "bs_c_003": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [4, 36]
+    },
+    "bs_c_004": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [9, 36]
+    },
+    "bs_c_005": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [9, 72]
+    },
+    "bs_c_006": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [18, 36]
+    },
+    "bs_c_007": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [4, 72]
+    }
+
+}

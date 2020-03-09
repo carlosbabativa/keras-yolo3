@@ -1,0 +1,75 @@
+{
+    "bs_gen_mg_400_000": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [3, 30]
+    }, 
+    "bs_gen_mg_400_001": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [3, 100]
+    },
+    "bs_gen_mg_400_002": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [3, 20]
+    },
+    "bs_gen_mg_400_003": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [3, 30]
+    },
+    "bs_gen_mg_400_004": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [3, 100]
+    },
+    "bs_gen_mg_400_005": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [3, 20]
+    },
+    "bs_gen_mg_400_006": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [6, 30]
+    },
+    "bs_gen_mg_400_007": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [6, 100]
+    },
+    "bs_gen_mg_400_008": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [6, 20]
+    },
+    "bs_gen_mg_400_009": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [6, 30]
+    },
+    "bs_gen_mg_400_010": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [6, 100]
+    },
+    "bs_gen_mg_400_011": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [6, 20]
+    },
+    "bs_gen_mg_400_012": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [2, 30]
+    },
+    "bs_gen_mg_400_013": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [2, 100]
+    },
+    "bs_gen_mg_400_014": {
+        "stg_epochs": [50, 100], 
+        "batch_sz": [2, 20]
+    },
+    "bs_gen_mg_400_015": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [2, 30]
+    },
+    "bs_gen_mg_400_016": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [2, 100]
+    },
+    "bs_gen_mg_400_017": {
+        "stg_epochs": [60, 120], 
+        "batch_sz": [2, 20]
+    }
+
+}

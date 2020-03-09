@@ -10,9 +10,10 @@ def convert_annotation(p1, image_id, list_file, ds_name, classes):
     root = tree.getroot()
 
     for obj in root.iter('object'):
-        difficult = obj.find('difficult').text
+        difficult = obj.find('difficult')
+        difficult_val = difficult.text if difficult is not None else 0
         cls = obj.find('name').text
-        if cls not in classes or int(difficult)==1:
+        if cls not in classes or int(difficult_val)==1 or difficult is not None:
             continue
         cls_id = classes.index(cls)
         xmlbox = obj.find('bndbox')
@@ -24,7 +25,7 @@ def main(ds_name):
 
     os.system('gen_img_lists.bat '+ds_name)
     ds_r_path = 'model_data/'+ds_name
-    sets=[ (ds_r_path,'data_train'), (ds_r_path, 'data_val') ]
+    sets=[ (ds_r_path,'data_train') ]
     classes = [f.strip('\n') for f in open('model_data/{}/labels.txt'.format(ds_name))]
     wd = getcwd()
 

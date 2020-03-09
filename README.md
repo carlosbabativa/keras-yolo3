@@ -17,7 +17,7 @@ lastly
     model_data
     |--{dataset_name}
     |   |--data_train
-    |       |--{images and labels}
+    |       |--{images and xml labels}
 <!-- 
     |   |--data_val
     |       |--{images and labels} -->
@@ -26,7 +26,7 @@ lastly
 <!-- 3. Modify my_annotation_bs.py (dataset_name) and run it. This outputs train and val txts with required input in dataset folder
     e.g.:
     {image1_path} [{{rect},{classID}}] -->
-3. Generate yolo-style annotations ``` python  my_annotation.py -d {dataset_name}``` 
+3. Generate yolo-style annotations ``` python  my_annotation.py -d {dataset_name} [-n {# of clusters, 6 if tiny}]``` 
     saved to data_train|val.txt in dataset folder
 4. Calculate Anchors with ``` python kmeans.py -d {dataset_name} ``` 
 <!-- 5. Create a copy and rename accoringly: yolov3-tiny_{dataset_suffix}.cfg
@@ -36,8 +36,8 @@ lastly
     [More Details](https://github.com/AlexeyAB/darknet/issues/4511) -->
 <!-- 6. Convert pretrained weights with your customised cfg by running ``` python convert.py {your.cfg} {chosen_arch_pretrained.weights} model_data/{dataset_name}/cfg_name.h5``` -->
 <!-- 7. Create a copy of train(caterp).py and rename accordingly -->
-
-5. Run ``` python my_train_general.py -d bedstraw_land -c configs_1.json ```
+5. 0 Modify the config.json file to suit your trials
+5. 1 Run ``` python my_train_general.py -d bedstraw_land_copies -c {your_config_set}.json ```
 
 # TODO
 [ ] Streamline steps as a single input of dataset folder path

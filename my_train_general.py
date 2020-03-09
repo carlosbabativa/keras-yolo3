@@ -18,7 +18,7 @@ from yolo3.utils import get_random_data
 
 def _main(ds_name, train_trial_name, train_cfg):
     global base_model
-    stg_epochs, batches, base_model = fetch_config(train_cfg)
+    stg_epochs, batch_sz, base_model = fetch_config(train_cfg)
     
     annotation_path = 'model_data/{}/data_train.txt'.format(ds_name)
     log_dir = 'logs/{}/'.format(train_trial_name)
@@ -54,7 +54,7 @@ def _main(ds_name, train_trial_name, train_cfg):
     num_train = len(lines) - num_val
 
     # hist = []
-    has_stg3 = len(batches) > 2
+    has_stg3 = len(batch_sz) > 2
     #STAGE 1 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
@@ -67,7 +67,7 @@ def _main(ds_name, train_trial_name, train_cfg):
             metrics=['accuracy']
         )
 
-        batch_size = batches[0]
+        batch_size = batch_sz[0]
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         # hist.append(
         model.fit_generator(data_generator_wrapper(lines[:num_train], batch_size, input_shape, anchors, num_classes),
@@ -89,7 +89,7 @@ def _main(ds_name, train_trial_name, train_cfg):
         model.compile(optimizer=Adam(lr=1e-4), loss={'yolo_loss': lambda y_true, y_pred: y_pred}, metrics=['accuracy']) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size = batches[1] # note that more GPU memory is required after unfreezing the body
+        batch_size = batch_sz[1] # note that more GPU memory is required after unfreezing the body
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         model.fit_generator(data_generator_wrapper(lines[:num_train], batch_size, input_shape, anchors, num_classes),
         steps_per_epoch=max(1, num_train//batch_size),
@@ -105,7 +105,7 @@ def _main(ds_name, train_trial_name, train_cfg):
     # Further training if needed.
     # STAGE 3
     if has_stg3:
-        batch_size = batches[2] # note that more GPU memory is required after unfreezing the body
+        batch_size = batch_sz[2] # note that more GPU memory is required after unfreezing the body
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbose=1)
         # hist.append(
@@ -228,7 +228,7 @@ def data_generator_wrapper(annotation_lines, batch_size, input_shape, anchors, n
 def fetch_config(train_cfg):
     default = {
         'stg_epochs':[50,100],
-        'batches'   :[12,32],
+        'batch_sz'   :[12,32],
         'base'      :'yolov3-tiny'
     }
     for k in default.keys():
@@ -259,12 +259,12 @@ if __name__ == '__main__':
         {
             'train_cfg_1': {
                 'stg_epochs':[50,100],
-                'batches'   :[3,6],
+                'batch_sz'   :[3,6],
                 'base'      :'yolov3-tiny'
             },
             'train_cfg_2': {
                 'stg_epochs':[50, 120, 150],
-                'batches'   :[2, 3, 6],
+                'batch_sz'   :[2, 3, 6],
                 'base'      :'train_cfg_1'
             }
         }
