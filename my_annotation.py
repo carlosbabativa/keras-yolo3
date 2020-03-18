@@ -23,9 +23,16 @@ def convert_annotation(p1, image_id, list_file, ds_name, classes):
 
 def main(ds_name):
 
-    os.system('gen_img_lists.bat '+ds_name)
+    os.system('gen_img_lists.bat '+ds_name) if os.name == 'nt' else os.system('bash gen_img_lists.sh '+ds_name)
     ds_r_path = 'model_data/'+ds_name
-    sets=[ (ds_r_path,'data_train') ]
+    sets=[ (ds_r_path,'data_train'), (ds_r_path,'data_val') ]
+    # for ds, subds in sets:
+    #     listpath = ds + '/' + subds
+    #     with open(listpath+'.txt','w+') as f:
+    #         flist = os.listdir(listpath)
+    #         imglist = list(filter(lambda f:'.jpg' in f or '.png' in f, flist))
+    #         strimgls = '/n'.join(['/'.join((os.getcwd(),ds,img)) for img in imglist])
+    #         f.write(strimgls)
     classes = [f.strip('\n') for f in open('model_data/{}/labels.txt'.format(ds_name))]
     wd = getcwd()
 

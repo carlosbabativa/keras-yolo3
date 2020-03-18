@@ -26,9 +26,9 @@ lastly
 <!-- 3. Modify my_annotation_bs.py (dataset_name) and run it. This outputs train and val txts with required input in dataset folder
     e.g.:
     {image1_path} [{{rect},{classID}}] -->
-3. Generate yolo-style annotations ``` python  my_annotation.py -d {dataset_name} [-n {# of clusters, 6 if tiny}]``` 
+3. Generate yolo-style annotations ``` python  my_annotation.py -d {dataset_name} ``` 
     saved to data_train|val.txt in dataset folder
-4. Calculate Anchors with ``` python kmeans.py -d {dataset_name} ``` 
+4. Calculate Anchors with ``` python kmeans.py -d {dataset_name} [-n {# of clusters, 6 if tiny}]``` 
 <!-- 5. Create a copy and rename accoringly: yolov3-tiny_{dataset_suffix}.cfg
     5.1 Copy the line of anchors at model_data/{dataset_name}/calculated_anchors.txt
     5.2 Paste anchors in this file (on each yolo layer - 2 in total for yolov3-tiny)
