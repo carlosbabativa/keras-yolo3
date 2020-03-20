@@ -30,6 +30,7 @@ def main(args):
 	# ds_name = input('dataset name: \n>')
 	# ds_name = 'bedstraw_land'
 	ds_name = args.ds_name
+	dss_path = args.dss_path
 	# calc_boxes = True if input('calc boxes? (Y/n)\n>').lower() == 'y' else False
 	# draw_boxes = True if input('draw boxes? (Y/n)\n>').lower() == 'y' else False
 	# calc_boxes, draw_boxes = False, True
@@ -37,7 +38,7 @@ def main(args):
 
 	# Iterate over datasets requested
 	for ds in datasets:
-		dss_path = 'model_data'
+		# dss_path = 'model_data'
 		ds_path = '{}/{}'.format(dss_path,ds_name)
 		lpath = '{}/data_{}.txt'.format(ds_path,ds)
 		pth = os.path.join(os.getcwd(), lpath)
@@ -100,6 +101,13 @@ if __name__ == "__main__":
 		required=True,
 		help='Name of dataset (folder in datastes folder \'data\')',
 	)
+	parser.add_argument(
+        '-p',
+        '--datasets-path',
+        dest='dss_path',
+        default='model_data',
+        help='Name of dataset (folder in datastes folder \'data\')',
+    )
 	parser.add_argument(
 		'-b',
 		'--draw-boxes',

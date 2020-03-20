@@ -1,2 +1,2 @@
-dir /b model_data\%1\data_train >model_data\%1\data_train.txt
-dir /b model_data\%1\data_val >model_data\%1\data_val.txt
+dir /b %1\%2\data_train >%1\%2\data_train.txt
+dir /b %1\%2\data_val >%1\%2\data_val.txt
