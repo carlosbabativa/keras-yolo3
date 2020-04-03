@@ -26,7 +26,7 @@ def main(ds_name, dss_path):
     global datasets_path 
     datasets_path = dss_path if dss_path != 'model_data' else os.path.abspath(os.getcwd()) +'/' + dss_path
     list_args = datasets_path + ' ' + ds_name
-    os.system('gen_img_lists.bat '+ list_args) if os.name == 'nt' else os.system('bash gen_img_lists.sh '+list_args)
+    os.system('gen_img_lists.bat '+ list_args) if os.name == 'nt' else os.system('bash gen_img_lists.sh '+list_args + ' 2> /dev/null')
     ds_r_path = datasets_path+'/'+ds_name
     sets=[ (ds_r_path,'data_train'), (ds_r_path,'data_val') ]
     # for ds, subds in sets:
