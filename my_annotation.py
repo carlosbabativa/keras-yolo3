@@ -6,17 +6,18 @@ import os
 
 def convert_annotation(p1, image_id, list_file, ds_name, classes):
     global datasets_path
-    in_file = open('{}/{}/{}/{}.xml'.format(datasets_path,ds_name,p1, image_id))
+    ifn = '{}/{}/{}/{}.xml'.format(datasets_path,ds_name,p1, image_id)
+    in_file = open(ifn)
     tree=ET.parse(in_file)
     root = tree.getroot()
 
     for obj in root.iter('object'):
         difficult = obj.find('difficult')
         difficult_val = difficult.text if difficult is not None else 0
-        cls = obj.find('name').text
-        if cls not in classes or int(difficult_val)==1 or difficult is not None:
+        clsn = obj.find('name').text
+        if clsn not in classes:# or int(difficult_val)==1:
             continue
-        cls_id = classes.index(cls)
+        cls_id = classes.index(clsn)
         xmlbox = obj.find('bndbox')
         b = (int(xmlbox.find('xmin').text), int(xmlbox.find('ymin').text), int(xmlbox.find('xmax').text), int(xmlbox.find('ymax').text))
         list_file.write(" " + ",".join([str(a) for a in b]) + ',' + str(cls_id))

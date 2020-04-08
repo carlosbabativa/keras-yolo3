@@ -86,11 +86,11 @@ def main(args):
 					print('\t Obj: '+str(obj)+' between vertices '+ str(vtx1)+' and '+str(vtx2))
 				cv2.imwrite( box_img_path, im )
 
-	if args.calc_boxes:
-		with open('{}/{}_list.txt'.format(ds_path,ds),'w+') as t:
-			for img in train_list:
-				# t.write( str(img.replace( '{}/data_{}'.format(ds_name,ds), 'images' )) + '\n' )
-				t.write( str(img) + '\n' )
+		if args.calc_boxes:
+			with open('{}/{}_list.txt'.format(ds_path,ds),'w+') as t:
+				for img in train_list:
+					# t.write( str(img.replace( '{}/data_{}'.format(ds_name,ds), 'images' )) + '\n' )
+					t.write( str(img) + '\n' )
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
